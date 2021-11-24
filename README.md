@@ -125,6 +125,7 @@ route('members.show',['id' => 1, 'opt' =>'a'])
 2-prefix
 
 1- middleware
+<br />
 در مثال زیر فقط کاربرانی میتونن به ادرس های گروپ شده برن که احراز هویت شده باشن
 ```php
 Route::middleware('auth')->group(function () {
@@ -137,6 +138,7 @@ Route::middleware('auth')->group(function () {
  });
 ```
 2-prefix
+<br />
 بعضی از ادرس ها پیشوند های یکسانی دارند برای مثال 
 <br />
 /admin/category
