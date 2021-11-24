@@ -108,6 +108,66 @@ route('members.show',['id' => 1, 'opt' =>'a'])
 ```php
  http://127.0.0.1:8000/members/1?opt=a 
 ```
+گروه بندی مسیر ها:
+```php 
+ Route::group(function () {
+     Route::get('/', function () {
+                 return 'dashboard';
+            });
+      Route::get('menu', function () {
+                 return 'dashboard/menu';
+            });
+ });
+```
+کاربرد گروه بندی مسیر ها:
+<br />
+1- middleware
+2-prefix
+
+1- middleware
+در مثال زیر فقط کاربرانی میتونن به ادرس های گروپ شده برن که احراز هویت شده باشن
+```php
+Route::middleware('auth')->group(function () {
+     Route::get('dashboard', function () {
+         return view('dashboard');
+     });
+     Route::get('account', function () {
+         return view('account');
+     });
+ });
+```
+2-prefix
+بعضر از ادرس ها پیشوند های یکسانی دارند برای مثال 
+/admin/category
+ و 
+ /admin/posts
+در این صورت استفاده از گروه ها مفید می باشد
+<br />
+استفاده از پیشوند ها دو روش دارد
+<br />
+روش اول:
+```php
+ Route::group(['prefix' => 'admin'], function () {
+         Route::get('/', function () {
+                 return 'dashboard';
+             });
+         Route::get('menu', function () {
+                     return 'dashboard/menu';
+                });
+ });
+```
+روش دوم:
+```php
+ Route::prefix('admin')->group(function () {
+     Route::get('/', function () {
+         return 'dashboard';
+     });
+     Route::get('menu', function () {
+         return 'dashboard/menu';
+     });
+ });
+```
+
 
 
 
