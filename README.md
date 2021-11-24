@@ -34,7 +34,7 @@ show($id) -> HTTP Verb : get -> وظیفه ی این متد نشان دادن ا
 <br />
 create() -> HTTP Verb : get -> نشان دادن صفحه ی مخصوص  اضافه کردن یک ردیف 
 <br />
-store($id) -> HTTP Verb : post -> انجام عملیات اضافه کردن یک ردیف جدید 
+store() -> HTTP Verb : post -> انجام عملیات اضافه کردن یک ردیف جدید 
 <br />
 edit($id) -> HTTP Verb : get -> نشان دادن صفحه ی مخصوص ادیت کردن 
 <br />
