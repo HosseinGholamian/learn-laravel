@@ -1,4 +1,4 @@
-# learn-laravel
+# دوره ی سریع لاراول
 
 # Routes
 
@@ -172,6 +172,37 @@ Route::middleware('auth')->group(function () {
      });
  });
 ```
+استفاده از ساب دامین در سیستم روتینگ 
+```php 
+Route::domain('test.myapp.com')->group(function (){
+     Route::get("/" , function(){
+         return "hi";
+     });
+ });
+ 
+ Route::domain('{account}.myapp.com')->group(function () {
+     Route::get('user/{id}', function ($account, $id) {
+     });
+ });
+```
+استفاده از پیشوند برای نام های چند مسیر
+```php
+Route::name('admin.')->group(function () {
+    Route::get('/users', function () {
+        // Route assigned name "admin.users"...
+    })->name('users');
+});
+```
+ویرایش صفحه ی 404 با استفاده از متد 
+fallback :
+این متد زمانی اجرا میشه که ادرسی که کاربر وارد کرده وجود نداشته باشه این متد باید اخرین متد یا اخرین خطی باشه که توی سیستم روتینگ می نویسیم
+```php
+Route::fallback(function () {
+    //
+});
+```
+
+
 
 
 
