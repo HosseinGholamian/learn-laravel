@@ -214,6 +214,12 @@ Route::get('/home', function(){
 ```
 
 
+## برای ساخت کنترلر جدید دستور زیر را در ترمینال می زنیم
+```php
+php artisan make:controller HomeController
+```
+
+
 
 
 
