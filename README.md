@@ -242,3 +242,14 @@ php artisan make:controller AdminController --resource
 ```php
 Route::resource('/category', 'CategoryController');
 ```
+ساخت همان مسیر ها برای 
+api
+ تفاوت در این است که در 
+ api 
+ دیگر متد های
+ create , edit
+ را نداریم
+ ```php
+ Route::apiResource('/category', "CategoryController");
+
+ ```
