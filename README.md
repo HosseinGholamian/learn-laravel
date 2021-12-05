@@ -218,16 +218,16 @@ Route::get('/home', function(){
 ```php
 php artisan make:controller HomeController
 ```
-##ایجاد کنترلر با هفت متد 
+## ایجاد کنترلر با هفت متد 
 index create store edite update destroy
 ```
 php artisan make:controller AdminController --resource
 ```
-###دریافت تمام مسیر های تعریف شده 
+### دریافت تمام مسیر های تعریف شده 
 ```php
  php artisan route:list
 ```
-###ساخت ادرس های هفت متد برای کنترلر دسته بندی
+### ساخت ادرس های هفت متد برای کنترلر دسته بندی
 ```php
  Route::get('/category' , 'CategoryController@index');
  Route::get('/category/create' , 'CategoryController@create');
@@ -253,7 +253,7 @@ api
  Route::apiResource('/category', "CategoryController");
 
  ```
-##Single action Controller <br>
+## Single action Controller <br>
 این نوع کنترلر فقط وظیفه ی انجام یک کار را دارد برای مثال نمایش عکس پروفایل کاربران برای ساخت این نوع کنترلر فقط کافیست خط زیر را در ترمینال اجرا کنیم
 ```php
  php artisan make:controller ShowProfile --invokable
