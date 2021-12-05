@@ -258,3 +258,21 @@ api
 ```php
  php artisan make:controller ShowProfile --invokable
 ```
+
+## Redirect in Laravel
+```php
+// 1
+ Route::get('redirect-with-helper' , function(){
+   return redirect()->to('category/create');
+ });
+// 2
+ Route::get('redirect-with-helper-shortcut' , function(){
+   return redirect('category');
+ });
+//3
+ Route::get('redirect-with-facade' , function(){
+   return Redirect::to('category');
+ });
+//4
+Route::redirect('redirect-by-route' , 'category');
+```
