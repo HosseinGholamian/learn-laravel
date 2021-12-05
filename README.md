@@ -227,4 +227,18 @@ php artisan make:controller AdminController --resource
 ```php
  php artisan route:list
 ```
+###ساخت ادرس های هفت متد برای کنترلر دسته بندی
+```php
+ Route::get('/category' , 'CategoryController@index');
+ Route::get('/category/create' , 'CategoryController@create');
+ Route::post('/category' , 'CategoryController@store');
+ Route::get('/category/show/{id}' , 'CategoryController@show');
+ Route::get('/category/edit/{id}' , 'CategoryController@edit');
+ Route::put('/category/update/{id}' , 'CategoryController@update');
+ Route::delete('/category/destroy/{id}' , 'CategoryController@destroy');
+```
 
+بجای نوشتن این هفت ادرس فقط با کد زیر میتونیم تمام مسیر های بالا را تعریف کنیم
+```php
+Route::resource('/category', 'CategoryController');
+```
