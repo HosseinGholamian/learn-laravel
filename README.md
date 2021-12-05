@@ -276,3 +276,31 @@ api
 //4
 Route::redirect('redirect-by-route' , 'category');
 ```
+
+ارسال متغیر همراه ریدایرکت دقت شود که در متد 
+route 
+باید از اسم مسیر ها استفاده کنیم نه ادرس ان ها
+```php
+ Route::get('redirect', function()
+ {
+   return redirect()->route('category.create',['id' => 1]);
+ });
+```
+ریدارکت بک در لاراول
+```php
+ Route::get('redirect', function()
+ {
+    return redirect()->back();
+ });
+```
+
+ریدایرکت کردن به یک کنترلر با متد مشخص با استفاده از
+redirect()->action()
+```php
+ Route::get('redirect', function()
+ {
+   return redirect()->action('CategoryController@create');
+ });
+```
+
+
