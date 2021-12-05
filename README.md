@@ -253,3 +253,8 @@ api
  Route::apiResource('/category', "CategoryController");
 
  ```
+##Single action Controller <br>
+این نوع کنترلر فقط وظیفه ی انجام یک کار را دارد برای مثال نمایش عکس پروفایل کاربران برای ساخت این نوع کنترلر فقط کافیست خط زیر را در ترمینال اجرا کنیم
+```php
+ php artisan make:controller ShowProfile --invokable
+```
