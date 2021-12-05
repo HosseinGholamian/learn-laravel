@@ -223,7 +223,8 @@ index create store edite update destroy
 ```
 php artisan make:controller AdminController --resource
 ```
-
-
-
+###دریافت تمام مسیر های تعریف شده 
+```php
+ php artisan route:list
+```
 
