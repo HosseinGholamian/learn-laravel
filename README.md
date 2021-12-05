@@ -218,7 +218,11 @@ Route::get('/home', function(){
 ```php
 php artisan make:controller HomeController
 ```
-
+##ایجاد کنترلر با هفت متد 
+index create store edite update destroy
+```
+php artisan make:controller AdminController --resource
+```
 
 
 
