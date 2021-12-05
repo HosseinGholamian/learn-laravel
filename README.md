@@ -201,7 +201,17 @@ Route::fallback(function () {
     //
 });
 ```
+##ارسلا متغیر به یک 
+view
 
+```php
+Route::get('/home', function(){
+     //return view('welcome')->with('var' , 'test');
+     //return view('welcome',['var'=>'test']);
+    $var = 'test';
+    return view('welcome', compact('var'));
+});
+```
 
 
 
