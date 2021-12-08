@@ -303,4 +303,13 @@ redirect()->action()
  });
 ```
 
-
+ست کردن سشن هنگام ریدابرکت
+```php
+Route::get("/category", function (){
+    return redirect('/category/create')->with('status',"Enable");
+});
+```
+گرفتن مقدار سشن ثبت شده:
+```php
+session("status");
+```
