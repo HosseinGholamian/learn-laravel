@@ -321,6 +321,8 @@ Route::get("/category", function (){
     return redirect('/')->away("google.com");
 });
 ```
+
+## HTTP Response
 نمایش صفحات ارور در بخش ویو <br>
 You may publish Laravel's default error page templates using the vendor:publish Artisan command. Once the templates have been published,
 you may customize them to your liking:
