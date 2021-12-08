@@ -313,3 +313,38 @@ Route::get("/category", function (){
 ```php
 session("status");
 ```
+
+
+ریدایرکت به صفحه ی خارج سایت
+```php
+Route::get("/category", function (){
+    return redirect('/')->away("google.com");
+});
+```
+نمایش صفحات ارور در بخش ویو <br>
+You may publish Laravel's default error page templates using the vendor:publish Artisan command. Once the templates have been published,
+you may customize them to your liking:
+```
+php artisan vendor:publish --tag=laravel-errors
+```
+
+The abort function throws an HTTP exception which will be rendered by the exception handler:
+```php
+abort(403);
+```
+You may also provide the exception's message and custom HTTP response headers that should be sent to the browser:
+```php
+abort(403, 'Unauthorized.', $headers);
+```
+abort_if() <br>
+The abort_if function throws an HTTP exception if a given boolean expression evaluates to true:
+```php
+abort_if(! Auth::user()->isAdmin(), 403);
+```
+Like the abort method, you may also provide the exception's response text as the third argument and an array of custom response headers as the fourth argument to the function.<br>
+
+abort_unless():<br>
+The abort_unless function throws an HTTP exception if a given boolean expression evaluates to false:
+```php
+abort_unless(Auth::user()->isAdmin(), 403);
+```
