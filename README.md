@@ -446,3 +446,83 @@ return response()->file($pathToFile);
 
 return response()->file($pathToFile, $headers);
 ```
+## Service provider
+برای ابجاد یک 
+provider 
+جدید باید دستور زیر را در ترمینال وارد کنیم
+```php
+php artisan make:provider TestProvider
+```
+برای اضافه کردن یک 
+provider 
+جدید به سیستم لاراول باید اون رو در مسیر
+config/App.php
+و در قسمت 
+providers 
+به صورت زیر اضافه کنیم 
+```
+App\Providers\TestProvider::class
+```
+
+برای اینکه یک متغیر را به چند صفحه بفرستیم باید از 
+provider 
+استفاده کنیم 
+برای اینکار سه روش وجود دارد که باید در کلاس 
+provider 
+در متد 
+boot
+بخ صورت زیر اضافه کنیم 
+```php 
+View::share("count" , 5);
+```
+که در این روش باید 
+facade
+را به پروژه اضافه کنیم برای این کار فقط کافیست بنویسیم
+```php
+use Illuminate\Support\Facades\View;
+```
+روش دوم 
+:
+در این روش میتوانیم صفحاتی که متغیر را می فرستیم محذوذ کنیم 
+```php
+view()->composer(["app.category", "app.posts"] , funciton($view){
+    $view->with("count" , 5);
+})
+```
+
+روش سوم استفاده از کلاس هاست برای این کار باید در مسیر
+App/Http
+یک پوشه به نام 
+View 
+و درون پوشه  ی
+View
+پوشه ای دیگر به نام 
+Composers 
+ایجاد کنیم سپس درین پوشه کلاس های خود را ایجاد می کنیم برای مثال یک فایل به اسم 
+TestComposer.php 
+ایجاد می کنیم 
+```php
+
+namespace App\Http\View\Composers;
+
+use Illuminate\Contracts\View\View;
+
+class TestComposer{
+    public function compose(View $view){
+        $view->with("count",25);
+    }
+}
+```
+و مقادیر بالا را می نویسیم 
+حالا در فایل 
+TestProvider
+و متد 
+boot
+فقط کافی است بنویسیم
+```php
+view()->composer(["app.category", "app.posts"] ,App\Http\View\Composers\TestComposer::class });
+```
+
+
+
+
