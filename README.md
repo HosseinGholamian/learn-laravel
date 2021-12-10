@@ -416,3 +416,33 @@ protected $except = [
     'cookie_name',
 ];
 ```
+## View Responses
+If you need control over the response's status and headers but also need to return a view as the response's content, you should use the view method:
+```php
+return response()
+            ->view('hello', $data, 200)
+            ->header('Content-Type', $type);
+```
+## JSON Responses
+The json method will automatically set the Content-Type header to application/json, as well as convert the given array to JSON using the json_encode PHP function:
+```php
+return response()->json([
+    'name' => 'Abigail',
+    'state' => 'CA',
+]);
+```
+
+## File Downloads
+The download method may be used to generate a response that forces the user's browser to download the file at the given path. The download method accepts a filename as the second argument to the method, which will determine the filename that is seen by the user downloading the file. Finally, you may pass an array of HTTP headers as the third argument to the method:
+```php
+return response()->download($pathToFile);
+
+return response()->download($pathToFile, $name, $headers);
+```
+## File Responses
+The file method may be used to display a file, such as an image or PDF, directly in the user's browser instead of initiating a download. This method accepts the path to the file as its first argument and an array of headers as its second argument:
+```php
+return response()->file($pathToFile);
+
+return response()->file($pathToFile, $headers);
+```
