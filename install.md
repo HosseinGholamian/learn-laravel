@@ -159,8 +159,11 @@ composer.json:
             "QueraCollege\\StringUtils\\": "src"
         }
     }}
-    ```
+    
+```
+  
 پس از ذکر مقادیر autoload در فایل composer.json، با اجرای دستور زیر می‌توان فایل autoload.php را تولید کرد:
+
 ```
 composer dump
 ```
