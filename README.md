@@ -6,3 +6,5 @@
 * [modular development with laravel](modular.md)\
 * [Service Provider](serviceprovider.md)
 * [Middleware](middleware.md)
+* [Request](request.md)
+
