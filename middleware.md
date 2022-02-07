@@ -1,5 +1,5 @@
 
-# ساختن میدلویر
+## ساختن میدلویر
 ```
 php artisan make:middleware CheckUserStatus
 ```
@@ -16,14 +16,14 @@ class CheckUserStatus
     }
 }
 ```
-# اضافه کردن میدلویر به روت 
+## اضافه کردن میدلویر به روت 
 ```php
 Route::get('/', [HomeController::class, 'index'])->middleware("terminate");
 ```
 
 
 
-# میدلور ها می توانند قبل از پردازش رکوئست یا بعد از پردازش رکوئست اجرا شوند برای مثال
+## میدلور ها می توانند قبل از پردازش رکوئست یا بعد از پردازش رکوئست اجرا شوند برای مثال
 ```php
 class BeforeMiddleware
 {
@@ -46,7 +46,7 @@ class AfterMiddleware
 }
 ```
 
-# اگر بخواهیم میدلویری را بعد از ارسال پاسخ به کاربر انجام دهیم از متد terminate استفاده می کنیم 
+## اگر بخواهیم میدلویری را بعد از ارسال پاسخ به کاربر انجام دهیم از متد terminate استفاده می کنیم 
 ```
  public function terminate($request, $response)
     {
