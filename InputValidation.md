@@ -71,3 +71,28 @@ Validator::make($request->all(), [
 ```
 با این کار، مراحل ذکرشده نظیر انتقال به صفحه قبل، ذخیره‌ی خطاها در سشن و هم‌چنین ذخیره‌ی اینپوت‌ها به‌صورت خودکار انجام می‌شود.
 .
+
+
+### ایجاد فرم ریکوئست
+```
+php artisan make:request SignupRequest
+```
+پس از اجرای این دستور، کلاس SignupRequest در پوشه app/Http/Requests ایجاد خواهد شد. این کلاس دارای دو متد با نام‌های authorize و rules است. متد authorize وظیفه‌ی بررسی این‌که آیا کاربر مجاز به انجام این ریکوئست است یا نه را بر‌عهده دارد. متد rules قواعد اعتبار‌سنجی را به‌صورت یک آرایه بر می‌گرداند:
+```
+public function rules()
+{
+    return [
+        'email' => 'required',
+        'mobile' => 'required|max:11',
+    ];
+}
+```
+برای استفاده از این ریکوئست، تنها کافی است به جای Request، کلاس فرم ریکوئست را Type Hint کنید:
+```
+use App\Http\Requests\SignupRequest;
+
+public function store(SignupRequest $request)
+{
+    //
+}
+```
