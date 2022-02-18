@@ -10,3 +10,4 @@
 * [Upload File](uploadfile.md)
 * [Input Validation](InputValidation.md)
 * [cache](cache.md)
+* [Views](views.md)
