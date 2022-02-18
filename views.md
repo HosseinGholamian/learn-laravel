@@ -89,3 +89,35 @@ View::composer('layout.*', MenuComposer::class);
 ```php
 View::composer('*', MenuComposer::class);
 ```
+## view creator
+
+سازنده‌های ویو (view creators) مانند ویو کامپوزرها عمل می‌کنند و پیاده‌سازی مشابهی دارند، با این تفاوت که view creator ها برخلاف ویو کامپوزرها که هنگام رندر شدن ویو اجرا می‌شوند، هنگام نمونه‌گیری ویو اجرا می‌شوند. این تفاوت، باعث می‌شود بتوانیم مقادیر پاس‌ داده شده در view creator را در کنترلر تغییر دهیم (override کنیم). به مثال زیر توجه کنید:
+```php
+namespace App\Providers;
+
+use Illuminate\Support\Facades\View;
+use Illuminate\Support\ServiceProvider;
+
+class ComposerServiceProvider extends ServiceProvider
+{
+    public function boot()
+    {
+        View::composer('page1', function ($view) {
+            $view->with('name', 'Hassan');
+        });
+
+        View::creator('page2', function ($view) {
+            $view->with('name', 'Hassan');
+        });
+    }
+}
+```
+حالا اگر در کنترلر داشته باشیم:
+```php
+return View::make('page1')->with('name', 'Ali');
+```
+مقدار $name در ویو هم‌چنان Hassan خواهد بود. اما اگر داشته باشیم:
+```php
+return View::make('page2')->with('name', 'Ali');
+```
+مقدار $name در ویو برابر Ali خواهد بود.
