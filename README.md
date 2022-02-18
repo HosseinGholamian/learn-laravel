@@ -11,3 +11,4 @@
 * [Input Validation](InputValidation.md)
 * [cache](cache.md)
 * [Views](views.md)
+* [two lang website in laravel (Localization)](Localization.md)
