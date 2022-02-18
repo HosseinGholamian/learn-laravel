@@ -128,3 +128,22 @@ Route::get('/fa', function () {
     return view('hello');
 });
 ```
+زبان پیش‌فرض
+هنگامی که رشته‌ای که میخواهیم ترجمه کنیم در فایل زبان مورد نظر موجود نباشد، زبان پیشفرض مورد استفاده می‌شود. این زبان در فایل config/app.php مشخص می‌شود:
+```
+'fallback_locale' => 'fa'
+```
+زبان فعلی
+گاهی نیاز به چک کردن زبان فعلی داریم. برای این کار از دو تابع currentLocale و isLocale از Facade App استفاده می‌کنیم:
+```
+use Illuminate\Support\Facades\App;
+
+$locale = App::currentLocale();
+if ($locale == 'fa') {
+    //
+}
+
+if (App::isLocale('fa')) {
+    //
+}
+```
